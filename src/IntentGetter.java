@@ -3,10 +3,10 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 class IntentGetter {
-    Pattern pattern;
-    Map<String, String> classification_map;
+    private final Pattern pattern;
+    private final Map<String, String> classification_map;
 
-    public IntentGetter(Map<String, String> classification_map) {
+    IntentGetter(Map<String, String> classification_map) {
         StringBuilder pattern_builder = new StringBuilder();
         this.classification_map = classification_map;
 
@@ -16,7 +16,7 @@ class IntentGetter {
         pattern = Pattern.compile(pattern_builder.substring(1));
     }
 
-    public String get_intent(String text) {
+    final String get_intent(String text) {
         String intent = "brak";
         Matcher matcher = pattern.matcher(text);
 
