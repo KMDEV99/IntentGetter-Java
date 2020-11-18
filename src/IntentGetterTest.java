@@ -31,4 +31,34 @@ class IntentGetterTest {
         Assert.assertEquals(expected_output, output);
         System.out.printf("Input: %s\nExpected output: %s\nActual output: %s",input , expected_output, output);
     }
+
+    @org.junit.jupiter.api.Test
+    void get_intent_special_characters_multiple_whitespaces() {
+        String expected_output = "tak";
+        String input = "jeśźczę,,,...           jąk";
+        String output = IG.get_intent(input);
+
+        Assert.assertEquals(expected_output, output);
+        System.out.printf("Input: %s\nExpected output: %s\nActual output: %s",input , expected_output, output);
+    }
+
+    @org.junit.jupiter.api.Test
+    void get_intent_not_present() {
+        String expected_output = "brak";
+        String input = "takie zdanie";
+        String output = IG.get_intent(input);
+
+        Assert.assertEquals(expected_output, output);
+        System.out.printf("Input: %s\nExpected output: %s\nActual output: %s",input , expected_output, output);
+    }
+
+    @org.junit.jupiter.api.Test
+    void get_intent_no() {
+        String expected_output = "brak";
+        String input = "java";
+        String output = IG.get_intent(input);
+
+        Assert.assertEquals(expected_output, output);
+        System.out.printf("Input: %s\nExpected output: %s\nActual output: %s",input , expected_output, output);
+    }
 }
