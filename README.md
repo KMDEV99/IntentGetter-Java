@@ -18,4 +18,4 @@ click~=7.1.2
 
 Unidecode~=1.1.1
 
-Tested in Java 14
+Tested in JDK 14
