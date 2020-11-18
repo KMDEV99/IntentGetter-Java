@@ -1,5 +1,3 @@
-import java.lang.reflect.Array;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.regex.Matcher;
@@ -31,7 +29,7 @@ class IntentGetter {
     }
 
     final String prepare_string(String text) {
-        text = text.replace(",", "").replace(".", "");
+        text = text.replaceAll(",|\\.", "").replaceAll("  +", " ");
         char[] char_array = text.toLowerCase().toCharArray();
 
         Map<Character, Character> normalization_map = new HashMap<>();
@@ -45,8 +43,7 @@ class IntentGetter {
         normalization_map.put('ź', 'z');
         normalization_map.put('ż', 'z');
 
-        for (int i=0; i< char_array.length; i++)
-        {
+        for (int i = 0; i < char_array.length; i++) {
             if (normalization_map.containsKey(char_array[i]))
                 char_array[i] = normalization_map.get(char_array[i]);
         }

@@ -15,9 +15,20 @@ class IntentGetterTest {
     @org.junit.jupiter.api.Test
     void get_intent() {
         String expected_output = "nie wiem";
-        String output = IG.get_intent("nie mam zielonego pojecia");
+        String input = "nie mam zielonego pojecia";
+        String output = IG.get_intent(input);
 
         Assert.assertEquals(expected_output, output);
-        System.out.printf("Expected output: %s\nActual output: %s", expected_output, output);
+        System.out.printf("Input: %s\nExpected output: %s\nActual output: %s",input , expected_output, output);
+    }
+
+    @org.junit.jupiter.api.Test
+    void get_intent_special_characters() {
+        String expected_output = "tak";
+        String input = "jeśźczę jąk";
+        String output = IG.get_intent(input);
+
+        Assert.assertEquals(expected_output, output);
+        System.out.printf("Input: %s\nExpected output: %s\nActual output: %s",input , expected_output, output);
     }
 }
